@@ -1,0 +1,252 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Employee Management API
+meta:
+  id: wrk_1aad71451b8242a5b484475bec2781be
+  created: 1768150160312
+  modified: 1768150160312
+  description: ""
+collection:
+  - url: localhost:3000/api/auth/login
+    name: Login
+    meta:
+      id: req_0674bb7a09a243cc94e88723dd47e7b6
+      created: 1768150160316
+      modified: 1768162268570
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160316
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "novo@email.com",
+          "password": "senha123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/auth/register
+    name: Register
+    meta:
+      id: req_1ae85b00cfbf45c88725b91264e78618
+      created: 1768150160319
+      modified: 1768162269939
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160319
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "novo@email.com",
+          "password": "senha123",
+          "name": "Novo Usuário"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/auth/profile
+    name: Get Profile
+    meta:
+      id: req_0d29ebb1604a475c81ea3bbef8f75ab4
+      created: 1768150160322
+      modified: 1768162272278
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160322
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZTRkMzk2OC0xY2U1LTRlZDAtYmM2NS1iY2Q1MDg1OTg3NjAiLCJlbWFpbCI6Im5vdm9AZW1haWwuY29tIiwicm9sZSI6IlZJRVdFUiIsImlhdCI6MTc2ODE1MDQwMiwiZXhwIjoxNzY4MjM2ODAyfQ.qBhftbYkXCQGp1lasnAEpUHc3cYAhB3tRTeRA31sr5Y
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees
+    name: List Employees
+    meta:
+      id: req_05ccd72418b8462990b64cea3e95d861
+      created: 1768150160324
+      modified: 1768150554717
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160324
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZTRkMzk2OC0xY2U1LTRlZDAtYmM2NS1iY2Q1MDg1OTg3NjAiLCJlbWFpbCI6Im5vdm9AZW1haWwuY29tIiwicm9sZSI6IlZJRVdFUiIsImlhdCI6MTc2ODE1MDQwMiwiZXhwIjoxNzY4MjM2ODAyfQ.qBhftbYkXCQGp1lasnAEpUHc3cYAhB3tRTeRA31sr5Y
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees
+    name: Create Employee
+    meta:
+      id: req_c37eda314aaa4e0fb5d6ea092b7f8950
+      created: 1768150160325
+      modified: 1768162283675
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160325
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Carlos Souza",
+          "email": "carlos@empresa.com",
+          "position": "Desenvolvedor",
+          "department": "TI",
+          "salary": 7500,
+          "hireDate": "2024-01-10"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{ token }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees/{id}
+    name: Get Employee
+    meta:
+      id: req_1eba7febe59443f5906e064d3b5cbaca
+      created: 1768150160327
+      modified: 1768162298503
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160327
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer {{ token }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees/{id}
+    name: Update Employee
+    meta:
+      id: req_cea6ce4b8eff404db07169b6811ee066
+      created: 1768150160329
+      modified: 1768150764376
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160329
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "position": "Desenvolvedor Senior",
+          "salary": 9000
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: Authorization
+        value: Bearer {{ token }}
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees/a8898c07-5564-4e9c-9169-8d57380ce693
+    name: Delete Employee
+    meta:
+      id: req_942df45beee94d109cce4b4fb23826a1
+      created: 1768150160331
+      modified: 1768150753062
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160331
+    method: DELETE
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZTRkMzk2OC0xY2U1LTRlZDAtYmM2NS1iY2Q1MDg1OTg3NjAiLCJlbWFpbCI6Im5vdm9AZW1haWwuY29tIiwicm9sZSI6IlZJRVdFUiIsImlhdCI6MTc2ODE1MDQwMiwiZXhwIjoxNzY4MjM2ODAyfQ.qBhftbYkXCQGp1lasnAEpUHc3cYAhB3tRTeRA31sr5Y
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:3000/api/employees/statistics
+    name: Get Statistics
+    meta:
+      id: req_23c3cc4fcde2431fa176e10a1fbf1519
+      created: 1768150160332
+      modified: 1768150493785
+      isPrivate: false
+      description: ""
+      sortKey: -1768150160332
+    method: GET
+    headers:
+      - name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZTRkMzk2OC0xY2U1LTRlZDAtYmM2NS1iY2Q1MDg1OTg3NjAiLCJlbWFpbCI6Im5vdm9AZW1haWwuY29tIiwicm9sZSI6IlZJRVdFUiIsImlhdCI6MTc2ODE1MDQwMiwiZXhwIjoxNzY4MjM2ODAyfQ.qBhftbYkXCQGp1lasnAEpUHc3cYAhB3tRTeRA31sr5Y
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_021edc34a711b3d358eb0b43caf5e5a600407c64
+    created: 1768150160341
+    modified: 1768150160341
+environments:
+  name: Base Environment
+  meta:
+    id: env_021edc34a711b3d358eb0b43caf5e5a600407c64
+    created: 1768150160337
+    modified: 1768150160337
+    isPrivate: false
